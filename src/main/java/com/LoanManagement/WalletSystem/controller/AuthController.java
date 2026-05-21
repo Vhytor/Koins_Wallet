@@ -12,11 +12,6 @@ import jakarta.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * REST Controller for Authentication endpoints
- * Handles user authentication, registration, and account management
- * All endpoints except register and login require JWT authentication
- */
 @RestController
 @RequestMapping("/api/auth")
 @Validated
@@ -30,33 +25,21 @@ public class AuthController {
         this.securityUtil = securityUtil;
     }
 
-    /**
-     * POST /api/auth/register
-     * Register a new user account
-     * Public endpoint - no authentication required
-     */
+
     @PostMapping("/register")
     public ResponseEntity<UserResponse> register(@Valid @RequestBody RegisterRequest request) {
         UserResponse userResponse = authService.register(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(userResponse);
     }
 
-    /**
-     * POST /api/auth/login
-     * Authenticate user and return JWT token
-     * Public endpoint - no authentication required
-     */
+
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest request) {
         AuthResponse authResponse = authService.login(request);
         return ResponseEntity.ok(authResponse);
     }
 
-    /**
-     * POST /api/auth/logout
-     * Logout user by blacklisting their token
-     * Requires JWT authentication
-     */
+
     @PostMapping("/logout")
     public ResponseEntity<Map<String, String>> logout(@Valid @RequestBody LogoutRequest request) {
         authService.logout(request.getToken());
