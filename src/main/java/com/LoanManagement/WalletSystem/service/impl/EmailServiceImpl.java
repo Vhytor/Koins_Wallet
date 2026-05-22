@@ -6,8 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * Mock implementation of EmailService
  * In production, replace with actual email service (SendGrid, AWS SES, etc.)
+ * I'm using a logging approach here for demonstration purposes. The codes are stored in the db
+ * cause this is a demo, but in production, you would never log OTPs or sensitive info.
  */
 @Service
 public class EmailServiceImpl implements EmailService {

@@ -1,4 +1,4 @@
-package com.LoanManagement.WalletSystem.service.impl;
+package com.LoanManagement.WalletSystem.service;
 
 import com.LoanManagement.WalletSystem.dto.Auth.*;
 import com.LoanManagement.WalletSystem.exception.AuthenticationFailedException;
@@ -14,6 +14,7 @@ import com.LoanManagement.WalletSystem.security.JwtUtil;
 import com.LoanManagement.WalletSystem.service.EmailService;
 import com.LoanManagement.WalletSystem.service.OtpService;
 import com.LoanManagement.WalletSystem.service.TokenBlacklistService;
+import com.LoanManagement.WalletSystem.service.impl.AuthServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

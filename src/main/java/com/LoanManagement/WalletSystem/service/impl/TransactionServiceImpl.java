@@ -12,11 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Implementation of TransactionService
- * Handles business logic for transaction retrieval and querying
- * Follows Single Responsibility Principle by focusing on transaction operations
- */
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
@@ -36,7 +31,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public List<TransactionResponse> getAllTransactions(String userEmail) {
-        // Validate user exists
+
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
@@ -61,10 +56,7 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionMapper.toTransactionResponse(transaction);
     }
 
-    /**
-     * Internal method used by WalletService to get transactions for a specific wallet
-     * Package-private to indicate internal use
-     */
+
     List<Transaction> getTransactionsForWallet(String walletId) {
         return transactionRepository.findByWalletIdOrderByCreatedAtDesc(walletId);
     }

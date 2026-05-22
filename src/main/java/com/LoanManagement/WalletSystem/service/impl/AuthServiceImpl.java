@@ -27,11 +27,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Collections;
 
-/**
- * Implementation of AuthService
- * Handles user authentication, registration, and account management
- * Follows Single Responsibility Principle with delegated services
- */
+
 @Service
 public class AuthServiceImpl implements AuthService {
 
